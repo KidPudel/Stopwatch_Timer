@@ -567,11 +567,8 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/9287#comment
-status: Failed
+status: Solved
 feedback:
-  message: After one second one second should be counted. For view with id &quot;textView&quot;,
-    in property &quot;text&quot;
-  time: Fri, 25 Nov 2022 12:25:32 UTC
-  expected: <[00:01]>
-  actual: <[]>
+  message: Congratulations!
+  time: Fri, 25 Nov 2022 15:16:03 UTC
 record: -1

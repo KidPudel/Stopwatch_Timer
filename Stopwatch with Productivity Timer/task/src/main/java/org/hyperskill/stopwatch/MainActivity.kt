@@ -8,13 +8,14 @@ import org.hyperskill.stopwatch.viewmodels.StopwatchViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    // lazy instantiation
+    private val stopwatchViewModel: StopwatchViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // lazy instantiation
-        val stopwatchViewModel: StopwatchViewModel by viewModels()
 
         // make buttons do stuff that they deserve
         binding.startButton.setOnClickListener {
@@ -26,7 +27,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         stopwatchViewModel.getTimer.observe(this) {
-            binding.textView.hint = it
+            binding.textView.text = it
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        stopwatchViewModel.removeCallbacks()
     }
 }
